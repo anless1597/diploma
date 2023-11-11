@@ -1,0 +1,39 @@
+{
+  "name": "mqtt_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "broker": "node mqtt/broker.js",
+    "devices": "npm-run-all --parallel motion thermometer httpThermometer bell",
+
+    "mqttMotion": "node mqtt/motion.js",
+    "httpMotion": "node http/motion.js",
+
+    "mqttThermometer": "node mqtt/thermometer.js",
+    "httpThermometer": "node http/thermometer.js",
+
+    "mqttBell": "node mqtt/bell.js",
+    "httpBell": "node http/bell.js",
+
+    "mqttLamp": "node mqtt/lamp.js",
+    "httpLamp": "node http/lamp.js",
+
+    "mqttDoor": "node mqtt/door.js",
+    "httpDoor": "node http/door.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "floss-js": "^1.0.0",
+    "mosca": "^2.8.3",
+    "mqtt": "^4.3.6",
+    "random": "^3.0.6"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

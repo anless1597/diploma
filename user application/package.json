@@ -1,0 +1,37 @@
+{
+  "name": "user-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "initializeHttpThermometer": "node requestsDevices/Thermometer/initializeHttpThermometer.js",
+    "initializeMqttThermometer": "node Devices/Thermometer/initializeMqttThermometer.js",
+    "deleteMqttThermometer": "node Devices/Thermometer/deleteMqttThermometer.js",
+    "initializeHttpMotion": "node requestsDevices/Motion/initializeHttpMotion.js",
+    "initializeMqttMotion": "node Devices/Motion/initializeMqttMotion.js",
+    "initializeMqttBell": "node requestsDevices/Bell/initializeMqttBell.js",
+    "initializeHttpBell": "node requestsDevices/Bell/initializeHttpBell.js",
+    "updateMqttBell": "node requestsDevices/Bell/updateMqttBell.js",
+    "updateHttpBell": "node requestsDevices/Bell/updateHttpBell.js",
+    "initializeMqttLamp": "node Devices/Lamp/initializeMqttLamp.js",
+    "initializeHttpLamp": "node Devices/Lamp/initializeHttpLamp.js",
+    "updateMqttLamp": "node Devices/Lamp/updateMqttLamp.js",
+    "updateHttpLamp": "node Devices/Lamp/updateHttpLamp.js",
+    "initializeMqttDoor": "node Devices/Door/initializeMqttDoor.js",
+    "initializeHttpDoor": "node Devices/Door/initializeHttpDoor.js",
+    "updateMqttDoor": "node Devices/Door/updateMqttDoor.js",
+    "updateHttpDoor": "node Devices/Door/updateHttpDoor.js",
+    "initializeMqttThermometerByModel": "node requestsDevices/createDeviceByModel.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "hbs": "^4.2.0",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.16",
+    "socket.io": "^4.5.1"
+  }
+}

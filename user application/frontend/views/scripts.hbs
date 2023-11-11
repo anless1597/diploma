@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <title>Сценарии</title>
+</head>
+<body>
+<div class="block">
+    <div class="text-center">
+        <button onclick="location.href='/scripts/create'" type="button" class="btn btn-success btn-lg">Создать
+            сценарий
+        </button>
+        <button onclick="location.href='/'" type="button" class="btn btn-success btn-lg">Главная страница</button>
+    </div>
+    <div class="scripts p-3  d-flex flex-wrap mt-4">
+        {{#each subs}}
+        <div class="script p-4 border border-secondary border-2  rounded-3" id={{this._id}}>
+            <div class="fs-3 text-center mb-2">{{this.description}}</div>
+            <div class="text-center">
+                <button type="button" class="script__button-edit btn btn-warning btn-sm" id="editScript">Редактировать</button>
+                <button type="button" class="script__button-delete btn btn-danger btn-sm" id="deleteScript">Удалить</button>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>
+<div id="notificationScript" class="position-fixed  bottom-0 end-0 mb-4 me-4"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="../js/script.js"></script>
+</body>
+</html>

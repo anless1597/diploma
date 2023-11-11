@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <title>Комната</title>
+</head>
+<body>
+<div class="block">
+    <div class="d-flex justify-content-between">
+        <div class="room-settings p-5 border border-secondary border-2 rounded-3 d-flex flex-column justify-content-center ">
+            <div class="text-center fs-2 mb-3">{{room.roomName.value}}</div>
+            <div class="d-flex  justify-content-center flex-column gap-3">
+                <button id="editPopupRoom" type="button" class="btn btn-warning">Редактировать комннату</button>
+                <button id="deleteRoom" type="button" class="btn btn-danger">Удалить</button>
+            </div>
+        </div>
+        <div class="room-info p-5  rounded-3  border border-secondary border-2 ">
+            <div class="fs-3 text-center mb-3">Описание</div>
+            <ul class="list-group mb-2">
+                <li class="list-group-item fs-6">Количество устройств в комнате: {{countDevices}}</li>
+                {{#each devicesTypes}}
+                    <li class="list-group-item fs-6">{{@key}} - {{this}}</li>
+                {{/each}}
+            </ul>
+            <div class="text-center">
+                <button id="addDevice" type="button" class="btn btn-primary">Добавить устройство</button>
+            </div>
+        </div>
+    </div>
+    <div class="p-5 border border-secondary border-2 d-flex flex-wrap mt-4 rounded-3">
+        {{#each devices}}
+            <div id={{this._id}} class="device border border-secondary border-2 rounded me-3">
+                <div class="device__title text-center fs-4">{{this.name.value}}</div>
+                <div class="device__option">
+                    <div class="device__option-name fs-6 bg-warning text-dark rounded">Тип</div>
+                    <div class="device__option-value  border border-dark fs-6 bg-light text-dark  rounded">{{this.type}}</div>
+                </div>
+                {{#if this.refRoom}}
+                    <div class="device__option">
+                        <div class="device__option-name fs-6 bg-warning text-dark rounded">Комната</div>
+                        <div class="device__option-value  border border-dark fs-6 bg-light text-dark  rounded">{{this.refRoom.text}}</div>
+                    </div>
+                {{/if}}
+                {{#each (getDeviceAttributes this)}}
+                    {{#if (isCommand this.[1].type)}}
+                        <div class="text-center">
+                            <button
+                                    class="device__button-command {{this.[0]}} command w-100 btn btn-sm btn-dark"
+                                    type="button">
+                                {{this.[1].text}}
+                            </button>
+                        </div>
+                    {{else}}
+                        <div class="device__option">
+                            <div class="device__option-name fs-6 bg-warning text-dark rounded">{{this.[1].text}}</div>
+                            <div class="{{this.[0]}} device__option-value border border-dark fs-6 bg-light text-dark  rounded">
+                                {{#if this.[1].value}}
+                                    {{ this.[1].value}}
+                                {{else}}
+                                    нет данных
+                                {{/if}}
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+                <div class="text-center">
+                    <button id="" type="button" class="device__button-delete btn btn-sm btn-danger">Удалить из комнаты
+                    </button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{> popup}}
+<div id="notificationScript" class="position-fixed  bottom-0 end-0 mb-4 me-4"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="../js/room.js"></script>
+</body>
+</html>

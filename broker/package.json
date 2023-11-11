@@ -1,0 +1,22 @@
+{
+  "name": "broker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "broker.js",
+  "scripts": {
+    "start": "node broker.js",
+    "dev": "nodemon broker.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cron": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.3",
+    "express-validator": "^5.3.0",
+    "mongoose": "^6.2.10",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.15"
+  }
+}

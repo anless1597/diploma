@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+.index {
+    height: 150vh;
+}
+
+.index__menu {
+    gap: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.index__type-filter {
+    width: 600px;
+}
+
+.rooms {
+    width: 30vw;
+}
+
+.rooms__box {
+    row-gap: 30px;
+    padding: 2% 6%;
+}
+
+.devices__box {
+    gap: 1%;
+    row-gap: 30px;
+    align-items: center;
+    padding: 2% 4%;
+}
+
+.room {
+    height: 17vh;
+    width: 48%;
+    position: relative;
+}
+
+.room:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.block__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.room__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.devices {
+    width: 70vw;
+}
+
+.device {
+    padding: 16px 13px;
+    width: 24%;
+}
+
+.device__title {
+    margin-bottom: 12px;
+}
+
+
+.device__option {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.device__option-name {
+    margin-right: 5px;
+    padding: 8px;
+    flex-grow: 1;
+    /*width: 50%;*/
+}
+
+.device__option-value {
+    padding: 8px 4px;
+    flex-grow: 6;
+    /*width: 50%;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.room__button-delete {
+    margin-top: 6px;
+}
+
+.device__button-command{
+    width: 45%;
+    margin-top: 4px;
+}
+
+.device__button-delete {
+    margin-top: 12px;
+}
+
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup__content {
+    background-color: white;
+    min-width: 400px;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+}
+
+.popup__close {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+}
+
+.popup__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.popup__selection {
+    margin-bottom: 12px;
+}
+
+.popup__text {
+    font-size: 22px;
+}
+
+.block {
+    width: 75vw;
+    margin: 20px auto;
+}
+
+.room-settings {
+    width: 27%;
+}
+
+.room-info {
+    width: 71%;
+}
+
+.scripts {
+    gap: 1%;
+    row-gap: 2.5vh;
+}
+
+.script {
+    width: 32%;
+}
+
